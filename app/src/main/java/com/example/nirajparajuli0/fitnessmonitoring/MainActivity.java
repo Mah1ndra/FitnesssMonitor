@@ -11,8 +11,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
 import java.math.BigDecimal;
@@ -42,6 +45,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Activity activity;
     private String current_activity = Constants.JOGGING;
     private int activity_duration = 0;
+
+    ImageButton startbtn = (ImageButton) findViewById(R.id.start);
+    startbtn.setOnClickListener(new  View.OnClickListener(){
+        public void onClick(View v){
+            Toast.makeText(getBaseContext(),"started",Toast.LENGTH_SHORT).show();
+        }
+    });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -241,4 +251,5 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             Log.d("Success", "Added to DB " + countStr);
         }
     }
+
 }
